@@ -23,26 +23,25 @@ body {
   cursor: pointer;
 }
 
-.start-screen h1 {
-  padding: 20px;
+.slider-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .slider {
   display: flex;
-  width: 700%;
   height: 100vh;
   transition: transform 0.6s ease;
 }
 
 .slide {
-  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
   flex-shrink: 0;
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .slide img {
@@ -54,8 +53,8 @@ body {
 
 .slide h2 {
   margin-top: 20px;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 1.4rem;
+  color: white;
   text-align: center;
 }
 
@@ -64,7 +63,46 @@ body {
   text-align: center;
 }
 
-.final-slide h1 {
+/* Botones */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.3);
+  border: none;
   font-size: 2rem;
-  margin-bottom: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Puntitos */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.dots .active {
+  opacity: 1;
 }
