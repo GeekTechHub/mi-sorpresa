@@ -1,37 +1,30 @@
-const slider = document.getElementById("slider");
-const slides = document.querySelectorAll(".slide");
-const startScreen = document.getElementById("startScreen");
-const music = document.getElementById("bgMusic");
+const startScreen = document.getElementById('startScreen');
+const musica = document.getElementById('miMusica');
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-let currentIndex = 0;
-let startX = 0;
-let isDragging = false;
+let counter = 0;
+const size = slides.length;
 
-startScreen.addEventListener("click", () => {
-  startScreen.style.display = "none";
-  music.play().catch(() => {});
+// 1. Iniciar experiencia (Quitar pantalla y poner música)
+startScreen.addEventListener('click', () => {
+    startScreen.classList.add('hidden');
+    musica.play().catch(error => console.log("El navegador bloqueó el audio: ", error));
 });
 
-function updateSlider() {
-  slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+// 2. Control de botones
+nextBtn.addEventListener('click', () => {
+    counter = (counter + 1) % size; // Ciclo infinito simplificado
+    actualizarSlider();
+});
+
+prevBtn.addEventListener('click', () => {
+    counter = (counter - 1 + size) % size; // Ciclo infinito hacia atrás
+    actualizarSlider();
+});
+
+function actualizarSlider() {
+    slider.style.transform = `translateX(${-counter * 100}%)`;
 }
-
-slider.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-  isDragging = true;
-});
-
-slider.addEventListener("touchend", (e) => {
-  if (!isDragging) return;
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if (diff > 50 && currentIndex < slides.length - 1) {
-    currentIndex++;
-  } else if (diff < -50 && currentIndex > 0) {
-    currentIndex--;
-  }
-
-  updateSlider();
-  isDragging = false;
-});
