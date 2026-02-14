@@ -97,3 +97,33 @@ button:hover { background: white; }
     transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1); /* Movimiento más elegante */
     height: 100%;
 }
+/* Ajustes para Celulares (Pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .slider-container {
+        width: 95%; /* Ocupa casi todo el ancho en móviles */
+        height: 70vh; /* Un poco más bajo para que quepa el texto abajo */
+    }
+
+    .slide img {
+        height: 60%; /* Menos altura para la imagen, más para el texto */
+        object-fit: contain; /* Asegura que la foto se vea completa sin recortarse */
+        background-color: #fff; /* Fondo blanco por si la foto no llena el espacio */
+    }
+
+    .slide h2 {
+        font-size: 1.2rem; /* Texto más pequeño para que no se amontone */
+        padding: 0 15px;
+    }
+
+    .start-screen h1 {
+        font-size: 1.8rem; /* Título de entrada más pequeño */
+        padding: 0 20px;
+    }
+
+    /* Botones más pequeños y fáciles de tocar */
+    button {
+        padding: 10px;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.5); /* Más transparentes */
+    }
+}
