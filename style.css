@@ -67,7 +67,7 @@ button:hover { background: white; }
     width: 100%;
     height: 100%;
     /* Aquí añadimos la imagen de fondo */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://www.xtrafondos.com/wallpapers/vertical/silueta-de-pareja-viendo-el-atardecer-8454.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('silueta-de-pareja-viendo-el-atardecer_1220x2160_xtrafondos.com.jpg');
     background-size: cover;
     background-position: center;
     color: white;
