@@ -1,108 +1,89 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
+/* style.css */
 body {
-  overflow: hidden;
-  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-}
-
-.start-screen {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #f8bbd0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 10;
-  cursor: pointer;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .slider-container {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    overflow: hidden; /* Esto esconde las imágenes que no están activas */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: white;
 }
 
 .slider {
-  display: flex;
-  height: 100vh;
-  transition: transform 0.6s ease;
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* El efecto de movimiento */
+    height: 100%;
 }
 
 .slide {
-  min-width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .slide img {
-  max-width: 90%;
-  max-height: 70%;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-}
-
-.slide h2 {
-  margin-top: 20px;
-  font-size: 1.4rem;
-  color: white;
-  text-align: center;
-}
-
-.final-slide {
-  color: white;
-  text-align: center;
+    width: 100%;
+    height: 70%;
+    object-fit: cover; /* Evita que las fotos se deformen */
 }
 
 /* Botones */
 button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.3);
-  border: none;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  color: white;
-  border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    border-radius: 50%;
 }
 
-.prev {
-  left: 10px;
+.prev { left: 10px; }
+.next { right: 10px; }
+
+button:hover { background: white; }
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff4d6d; /* Un rojo/rosa romántico */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.8s ease, visibility 0.8s;
 }
 
-.next {
-  right: 10px;
+.start-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* Puntitos */
-.dots {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-}
-
-.dots span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 5px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.5;
-}
-
-.dots .active {
-  opacity: 1;
+/* Mejora de la transición de las fotos */
+.slider {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1); /* Movimiento más elegante */
+    height: 100%;
 }
